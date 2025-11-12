@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(0, 0, 0);
+}
+
+.question{
+  font-size: 25px;
+  color: white;
+}
+
+li{
+  border: 2px solid rgb(162, 0, 255);
+  width: auto;
+  list-style: none;
+}
+
+.answer {
+  color: rgb(255, 0, 0);
+  font-size: large;
+}
