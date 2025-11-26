@@ -7,7 +7,7 @@ function Card({id, question, answer}){
     const [showAnswer, setShowAnswer] = useState(false);
 
 
-    //sygnal przez klikniecie do schowania innych odpowiedzi, by na pytanie ktore my klikniemy
+    //sygnal przy kliknieciu do schowania innych odpowiedzi, by na pytanie ktore my klikniemy
     function handleClick() {
         window.dispatchEvent(new CustomEvent('hideAllAnswers', { detail: id }));
         setShowAnswer((prev) => !prev);
@@ -15,9 +15,16 @@ function Card({id, question, answer}){
 
 
 
+    // część słucha sygnał hideAllAnswers
     
+    // jeśli sygnał pochodzi z innej karty chowamy odpowiedz w tej karcie
+    // jeśli sygnał jest z tej samej karty nic nie robimy
     useState(() => {
+        
+        // funkcja która reaguje n sygnały z innych kart
         function handler(e) {
+            
+            // jeśli to nie ta karta została kliknięta to schowa odpowiedz
             if (e.detail !== id) setShowAnswer(false);
         }
         window.addEventListener('hideAllAnswers', handler);
