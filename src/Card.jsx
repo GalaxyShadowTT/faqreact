@@ -31,11 +31,18 @@ function Card({id, question, answer}){
         return () => window.removeEventListener('hideAllAnswers', handler);
     }, [id]);
 
+
+
+    // wygląd jednej karty
+    // przycisk z pytanie
+    // odpowiedz pokazuje sie jeśli showAnswer = true
     return (
         <li>
             <button onClick={handleClick}>
                 <b className="question">{question}</b>
             </button>
+
+            // jeśli showAnswer = true pokazujemy odpowiedz. jeśli false to display: none ukrywa odpowiedz
             <p className="answer" id={id} style={{display: showAnswer ? "" : "none"}}>{answer}</p>
         </li>
     );
